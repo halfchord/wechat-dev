@@ -1,0 +1,12 @@
+server:
+  port: 66
+  tomcat:
+    uri-encoding: UTF-8
+    max-swallow-size: -1 #不限制请求大小
+
+#日志级别
+logging:
+  level:
+    root: info
+    com.alibaba.nacos: debug
+    com.alibaba.cloud.nacos: debug
