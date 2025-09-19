@@ -9,14 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>api</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>auth-service-88</module>
-        <module>file-service-55</module>
-        <module>main-service-66</module>
-    </modules>
+    <artifactId>gateway-1000</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -27,8 +20,26 @@
     <dependencies>
         <dependency>
             <groupId>org.example</groupId>
-            <artifactId>wechat-common</artifactId>
+            <artifactId>wechat-pojo</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+            <version>3.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-netty</artifactId>
+            <version>1.50.2</version> <!-- 使用与您现有 gRPC 设置匹配的最新版本 -->
         </dependency>
     </dependencies>
 

@@ -7,13 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="wechat-common" />
-        <module name="main-service-77" />
+        <module name="main-service-66" />
         <module name="auth-service-88" />
         <module name="wechat-pojo" />
         <module name="file-service-55" />
+        <module name="gateway-1000" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="main-service-77" target="17" />
       <module name="wechat-api" target="17" />
     </bytecodeTargetLevel>
   </component>
@@ -22,6 +24,8 @@
       <module name="api" options="" />
       <module name="auth-service-88" options="-parameters" />
       <module name="file-service-55" options="-parameters" />
+      <module name="gateway-1000" options="-parameters" />
+      <module name="main-service-66" options="-parameters" />
       <module name="main-service-77" options="-parameters" />
       <module name="wechat-api" options="-parameters" />
       <module name="wechat-common" options="-parameters" />
