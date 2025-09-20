@@ -9,9 +9,12 @@ spring:
         username: nacos
         password: nacos
         group: DEFAULT_GROUP  # 配置分组（默认DEFAULT_GROUP，可根据需要修改）
+        timeout: 10000
       config:
         server-addr: 119.45.220.62:8848
         file-extension: yml
         username: nacos
         password: nacos
         group: DEFAULT_GROUP
+        connection-timeout: 10000
+        read-timeout: 10000

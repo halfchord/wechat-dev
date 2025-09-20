@@ -4,6 +4,12 @@ server:
     uri-encoding: UTF-8
     max-swallow-size: -1 #不限制请求大小
 
+spring:
+  data:
+    redis:
+      host: 119.45.220.62
+      port: 5379
+      database: 0
 #日志级别
 logging:
   level:

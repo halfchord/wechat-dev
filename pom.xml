@@ -104,11 +104,11 @@
                 <scope>test</scope>
             </dependency>
 
-            <dependency>
+            <!--<dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-jsqlparser</artifactId>
-                <version>3.5.9</version> <!-- 确保版本与主包一致 -->
-            </dependency>
+                <version>3.5.9</version> &lt;!&ndash; 确保版本与主包一致 &ndash;&gt;
+            </dependency>-->
 
             <!-- 数据库驱动 -->
             <dependency>
@@ -117,7 +117,12 @@
                 <version>8.3.0</version>
             </dependency>
 
-
+            <!--hutool-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>5.7.17</version>
+            </dependency>
 
             <!-- lombok 插件工具-->
             <dependency>

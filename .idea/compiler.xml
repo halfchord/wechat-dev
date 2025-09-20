@@ -9,9 +9,10 @@
         <module name="wechat-common" />
         <module name="main-service-66" />
         <module name="auth-service-88" />
+        <module name="gateway-1000" />
+        <module name="base-service" />
         <module name="wechat-pojo" />
         <module name="file-service-55" />
-        <module name="gateway-1000" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -23,6 +24,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api" options="" />
       <module name="auth-service-88" options="-parameters" />
+      <module name="base-service" options="-parameters" />
       <module name="file-service-55" options="-parameters" />
       <module name="gateway-1000" options="-parameters" />
       <module name="main-service-66" options="-parameters" />

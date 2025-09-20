@@ -4,7 +4,6 @@ org\itzixi\utils\LocalDateUtils.class
 org\itzixi\enums\MsgReveiverTypeEnum.class
 org\itzixi\enums\ArticleStatus.class
 org\itzixi\base\BaseInfoProperties.class
-META-INF\spring-configuration-metadata.json
 org\itzixi\enums\InterviewStatusEnum.class
 org\itzixi\enums\ActiveTime.class
 org\itzixi\exceptions\GraceException.class
@@ -12,7 +11,6 @@ org\itzixi\enums\PaymentStatus.class
 org\itzixi\enums\EduEnum.class
 org\itzixi\enums\AggsUsersType.class
 org\itzixi\grace\result\IMOOCJSONResult.class
-org\itzixi\utils\TencentCloudProperties.class
 org\itzixi\grace\result\GraceJSONResult.class
 org\itzixi\utils\MD5Utils.class
 org\itzixi\enums\FileTypeEnum.class

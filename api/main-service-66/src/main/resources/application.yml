@@ -8,5 +8,3 @@ server:
 logging:
   level:
     root: info
-    com.alibaba.nacos: debug
-    com.alibaba.cloud.nacos: debug

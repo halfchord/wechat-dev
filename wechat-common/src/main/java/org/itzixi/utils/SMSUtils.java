@@ -1,6 +1,39 @@
-/*
+
 package org.itzixi.utils;
 
+
+import cn.hutool.core.util.RandomUtil;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+
+import java.util.UUID;
+
+@Slf4j
+@Component
+public class SMSUtils {
+    public static String sendSMS(String phone) throws Exception {
+        log.info("开始发送短信...");
+        String code = RandomUtil.randomNumbers(4);
+        log.info("验证码为：{}", code);
+        return code;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 import com.tencentcloudapi.common.profile.ClientProfile;
@@ -13,6 +46,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SMSUtils {
+
     @Autowired
     private TencentCloudProperties tencentCloudProperties;
 
