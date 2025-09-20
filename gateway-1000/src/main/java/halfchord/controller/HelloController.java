@@ -1,9 +1,6 @@
 package halfchord.controller;
 
-import jakarta.annotation.Resource;
 import org.itzixi.base.BaseInfoProperties;
-import org.itzixi.utils.RedisOperator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -3,12 +3,9 @@ package org.itzixi.base;
 
 import jakarta.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;
-import org.itzixi.utils.PagedGridResult;
 import org.itzixi.utils.RedisOperator;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-
-import java.util.List;
 
 public class BaseInfoProperties {
 

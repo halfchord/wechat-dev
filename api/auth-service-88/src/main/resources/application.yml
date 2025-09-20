@@ -10,6 +10,20 @@ spring:
       host: 119.45.220.62
       port: 5379
       database: 0
+  mail:
+    default-encoding: UTF-8
+    host: smtp.163.com
+    port: 465
+    username: 15180680576@163.com
+    password: EFfQZYE9qfNrUbBm
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+            required: true
+
 #日志级别
 logging:
   level:

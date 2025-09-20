@@ -3,6 +3,7 @@ org\itzixi\exceptions\GraceExceptionHandler.class
 org\itzixi\utils\LocalDateUtils.class
 org\itzixi\enums\MsgReveiverTypeEnum.class
 org\itzixi\enums\ArticleStatus.class
+org\itzixi\utils\EmailUtils.class
 org\itzixi\base\BaseInfoProperties.class
 org\itzixi\enums\InterviewStatusEnum.class
 org\itzixi\enums\ActiveTime.class
@@ -11,11 +12,13 @@ org\itzixi\enums\PaymentStatus.class
 org\itzixi\enums\EduEnum.class
 org\itzixi\enums\AggsUsersType.class
 org\itzixi\grace\result\IMOOCJSONResult.class
+org\itzixi\utils\EmailBean.class
 org\itzixi\grace\result\GraceJSONResult.class
 org\itzixi\utils\MD5Utils.class
 org\itzixi\enums\FileTypeEnum.class
 org\itzixi\enums\Sex.class
 org\itzixi\enums\UserRole.class
+org\itzixi\utils\SMSUtils.class
 org\itzixi\utils\JsonUtils.class
 org\itzixi\utils\RedisOperator.class
 org\itzixi\enums\PayMethod.class

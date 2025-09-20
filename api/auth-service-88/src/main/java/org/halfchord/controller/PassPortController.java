@@ -8,7 +8,7 @@ import org.itzixi.utils.RedisOperator;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import task.SMSTask;
+import task.emailSMSTask;
 
 import static org.itzixi.base.BaseInfoProperties.MOBILE_SMSCODE;
 
@@ -16,22 +16,21 @@ import static org.itzixi.base.BaseInfoProperties.MOBILE_SMSCODE;
 @RequestMapping("/passport")
 public class PassPortController {
     @Resource
-    private SMSTask smsTask;
+    private emailSMSTask emailSmsTask;
 
     @Resource
     private RedisOperator redis;
 
     @GetMapping("/getSMSCode")
-    public Object smsTask(String  phone, HttpServletRequest request)throws Exception {
-        if(StringUtils.isBlank(phone)){
-            return GraceJSONResult.errorMsg("手机号不能为空");
+    public Object smsTask(String  email, HttpServletRequest request)throws Exception {
+        if(StringUtils.isBlank(email)){
+            return GraceJSONResult.errorMsg("邮箱不能为空");
         }
 
-        String code = smsTask.sendSMSTask("15180680576");
+        String code = emailSmsTask.sendSMSTask(email);
 
         //将验证码存入redis
-        redis.set(MOBILE_SMSCODE + ":" + phone, code,5*60);
-
+        redis.set(MOBILE_SMSCODE + ":" + email, code,5*60);
         return GraceJSONResult.ok();
     }
 }

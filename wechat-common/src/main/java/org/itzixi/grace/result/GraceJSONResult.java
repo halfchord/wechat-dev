@@ -1,7 +1,5 @@
 package org.itzixi.grace.result;
 
-import lombok.Data;
-
 import java.util.Map;
 
 /**

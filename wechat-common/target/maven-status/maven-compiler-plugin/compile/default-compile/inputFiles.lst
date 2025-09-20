@@ -8,6 +8,7 @@ D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\enums\ShowWhichNa
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\exceptions\GraceException.java
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\utils\LocalDateUtils.java
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\utils\LocalDateTimeAdapter.java
+D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\utils\EmailUtils.java
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\enums\Sex.java
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\enums\FriendRequestVerifyStatus.java
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\utils\IPUtil.java
@@ -16,6 +17,7 @@ D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\enums\InterviewSt
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\enums\FileTypeEnum.java
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\utils\MyInfo.java
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\base\BaseInfoProperties.java
+D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\utils\EmailBean.java
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\enums\MessageEnum.java
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\utils\PagedGridResult.java
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\utils\DesensitizationUtil.java
