@@ -23,6 +23,7 @@ public class PassPortController {
 
     @GetMapping("/getSMSCode")
     public Object smsTask(String  email, HttpServletRequest request)throws Exception {
+
         if(StringUtils.isBlank(email)){
             return GraceJSONResult.errorMsg("邮箱不能为空");
         }

@@ -36,8 +36,6 @@ public class EmailSMSInterceptor implements HandlerInterceptor {
         String userIp = IPUtil.getRequestIp(request);
         String key="emailSMS:"+userIp;
 
-        //将用户ip存到redis中，设置过期时间60s
-        redis.setnx60s(key, "1");
 
         //判断用户ip是否在60s内发送过验证码
         boolean isExist = redis.keyIsExist(key);
@@ -47,6 +45,8 @@ public class EmailSMSInterceptor implements HandlerInterceptor {
             return false;
         }
 
+        //将用户ip存到redis中，设置过期时间60s
+        redis.setnx60s(key, "1");
         /*
         * 请求通过
         * */

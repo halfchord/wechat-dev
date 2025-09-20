@@ -17,7 +17,7 @@ public class emailSMSTask {
     public String sendSMSTask(String email) throws Exception {
         log.info("异步开始发送验证码");
         //生成验证码
-        String code = RandomUtil.randomNumbers(4);
+        String code = RandomUtil.randomNumbers(6);
         emailUtils.sendSimpleMessage(email,"验证码",code);
         log.info("异步结束发送验证码");
         return code;
