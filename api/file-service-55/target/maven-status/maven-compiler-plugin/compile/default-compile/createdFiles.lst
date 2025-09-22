@@ -1,2 +1,3 @@
 halfchord\Application.class
 halfchord\controller\HelloController.class
+halfchord\aspect\ServerLogAop.class

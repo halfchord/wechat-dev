@@ -166,7 +166,7 @@
 
         <dependency>
             <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
+            <artifactId>mybatis-spring</artifactId>
             <version>3.0.3</version>
         </dependency>
     </dependencies>

@@ -24,6 +24,7 @@ D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\utils\Desensitiza
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\enums\DealStatus.java
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\utils\TencentCloudProperties.java
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\enums\OrderStatus.java
+D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\utils\RenderErrorUtils.java
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\enums\EduEnum.java
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\exceptions\MyCustomException.java
 D:\work\code\wechat-dev\wechat-common\src\main\java\org\itzixi\grace\result\IMOOCJSONResult.java

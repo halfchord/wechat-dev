@@ -1,2 +1,9 @@
 # 项目排除路径
 /api/auth-service-88/target/
+/api/main-service-66/target/
+/api/file-service-55/target/
+/api/base-service/target/
+/gateway-1000/target/
+/wechat-common/target/
+/wechat-pojo/target/
+*.jar

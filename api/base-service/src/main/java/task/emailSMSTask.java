@@ -13,6 +13,7 @@ public class emailSMSTask {
 
     @Resource
     private EmailUtils emailUtils;
+
     @Async
     public String sendSMSTask(String email) throws Exception {
         log.info("异步开始发送验证码");

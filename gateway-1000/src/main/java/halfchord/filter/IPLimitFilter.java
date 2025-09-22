@@ -6,6 +6,7 @@ import org.itzixi.base.BaseInfoProperties;
 import org.itzixi.grace.result.GraceJSONResult;
 import org.itzixi.grace.result.ResponseStatusEnum;
 import org.itzixi.utils.IPUtil;
+import org.itzixi.utils.RenderErrorUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -44,7 +45,7 @@ public class IPLimitFilter extends BaseInfoProperties implements GlobalFilter, O
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         //默认放行请求到后续的路由
-        log.info("IPLimit 当前执行顺序为0");
+        log.info("IPLimit 当前执行顺序为1");
 
         log.info("最大连续刷新次数{}",continueCounts);
         log.info("ip判断时间间隔{}",timeInterval);
@@ -102,7 +103,7 @@ public class IPLimitFilter extends BaseInfoProperties implements GlobalFilter, O
         long limitLeftTimes = redis.ttl(ipRedisLimitKey);
         if (limitLeftTimes > 0) {
             // 终止请求，返回错误
-            return renderErrorMsg(exchange, ResponseStatusEnum.SYSTEM_ERROR_BLACK_IP);
+            return RenderErrorUtils.display(exchange, ResponseStatusEnum.SYSTEM_ERROR_BLACK_IP);
         }
 
         // 在redis中获得ip的累加次数
@@ -123,35 +124,15 @@ public class IPLimitFilter extends BaseInfoProperties implements GlobalFilter, O
             // 限制ip访问的时间[limitTimes]
             redis.set(ipRedisLimitKey, ipRedisLimitKey, limitTimes);
             // 终止请求，返回错误
-            return renderErrorMsg(exchange, ResponseStatusEnum.SYSTEM_ERROR_BLACK_IP);
+            return RenderErrorUtils.display(exchange, ResponseStatusEnum.SYSTEM_ERROR_BLACK_IP);
         }
 
         return chain.filter(exchange);
 
     }
 
-
-    public Mono<Void> renderErrorMsg(ServerWebExchange exchange, ResponseStatusEnum statusEnum){
-
-        //获取响应response
-        ServerHttpResponse response = exchange.getResponse();
-        //构建jsonResult
-        GraceJSONResult graceJSONResult = GraceJSONResult.exception(statusEnum);
-        //设置响应头类型
-        if(!response.getHeaders().containsKey("Content-Type")){
-            response.getHeaders().add("Content-Type", MimeTypeUtils.APPLICATION_JSON_VALUE);
-        }
-        //转换成json并且向response中写入数据
-        response.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR);
-
-        String resultJson = new Gson().toJson(graceJSONResult);
-
-        DataBuffer buffer = response.bufferFactory().wrap(resultJson.getBytes(StandardCharsets.UTF_8));
-        return response.writeWith(Mono.just(buffer));
-    }
-
     @Override
     public int getOrder() {
-        return 0;
+        return 1;
     }
 }
