@@ -1,11 +1,9 @@
 package pojo.vo;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import pojo.Comment;
 import pojo.FriendCircleLiked;
 
 import java.io.Serializable;
