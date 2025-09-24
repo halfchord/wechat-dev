@@ -11,6 +11,8 @@ logging:
     root: info
 
 spring:
+  application:
+    name: file-service
   datasource:
     type: com.zaxxer.hikari.HikariDataSource #配置数据源类型
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -39,3 +41,14 @@ spring:
           ssl:
             enable: true
             required: true
+  servlet:
+    multipart:
+      max-request-size: 1MB
+      max-file-size: 1MB
+
+minio:
+  endpoint: http://119.45.220.62:8000  #Minio服务地址
+  fileHost: http://119.45.220.62:8000  #文件地址host
+  bucketName: wechat                   #存储桶名称
+  accessKey: halfchord                 #访问密钥
+  secretKey: yuduailian                #密钥

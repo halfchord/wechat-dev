@@ -16,4 +16,6 @@ public interface UsersService {
       void modify(ModifyUserBO modifyUserBO);
 
       GraceJSONResult queryById(String userId,boolean needToken);
+
+      GraceJSONResult upDataFace(String userId, String face, boolean b);
 }

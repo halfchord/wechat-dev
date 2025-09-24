@@ -10,6 +10,8 @@ logging:
     root: info
 
 spring:
+  application:
+    name: main-service
   datasource:
     type: com.zaxxer.hikari.HikariDataSource #配置数据源类型
     driver-class-name: com.mysql.cj.jdbc.Driver

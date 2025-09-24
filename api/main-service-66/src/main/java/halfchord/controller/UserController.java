@@ -30,4 +30,13 @@ public class UserController {
         //返回用户信息
         return usersService.queryById(userId,false);
     }
+
+    @PostMapping("/updateFace")
+    public GraceJSONResult updateFace(
+            @RequestParam("userId") String userId,
+            @RequestParam("face") String face) {
+
+        //返回用户信息
+        return usersService.upDataFace(userId,face,true);
+    }
 }

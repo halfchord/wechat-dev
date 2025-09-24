@@ -5,6 +5,8 @@ server:
     max-swallow-size: -1 #不限制请求大小
 
 spring:
+  application:
+    name: auth-service
   datasource:
     type: com.zaxxer.hikari.HikariDataSource #配置数据源类型
     driver-class-name: com.mysql.cj.jdbc.Driver

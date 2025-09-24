@@ -8,3 +8,6 @@ target/
 
 # 忽略 jar.original 文件
 *.jar.original
+
+# 忽略所有测试文件
+halfchordTest/

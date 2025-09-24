@@ -1,5 +1,6 @@
 package halfchord.service.Impl;
 
+import feign.FileMicroServiceFeign;
 import halfchord.mapper.UsersMapper;
 import halfchord.service.UsersService;
 import jakarta.annotation.Resource;
@@ -8,6 +9,7 @@ import org.itzixi.base.BaseInfoProperties;
 import org.itzixi.exceptions.GraceException;
 import org.itzixi.grace.result.GraceJSONResult;
 import org.itzixi.grace.result.ResponseStatusEnum;
+import org.itzixi.utils.JsonUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import pojo.Users;
@@ -30,6 +32,9 @@ public class UsersServiceImpl extends BaseInfoProperties implements UsersService
     @Resource
     private UsersMapper usersMapper;
 
+    @Resource
+    private FileMicroServiceFeign fileMicroServiceFeign;
+
     @Override
     public void modify(ModifyUserBO modifyUserBO) {
         Users PendingUser = new Users();
@@ -42,6 +47,13 @@ public class UsersServiceImpl extends BaseInfoProperties implements UsersService
             String redisKey = REDIS_USER_ALREADY_UPDATE_WECHAT_NUM +":"+userId;
             if(redis.keyIsExist(redisKey)){
                 GraceException.display(ResponseStatusEnum.WECHAT_NUM_ALREADY_MODIFIED_ERROR);
+            }else{
+                try {
+                    String QrCodeUrl = fileMicroServiceFeign.generatorQrCode(wechatNum, userId);
+                    PendingUser.setWechatNumImg(QrCodeUrl);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
 
@@ -63,7 +75,6 @@ public class UsersServiceImpl extends BaseInfoProperties implements UsersService
         if(StringUtils.isNotBlank(wechatNum)){
             redis.setByDays(REDIS_USER_ALREADY_UPDATE_WECHAT_NUM +":"+userId, userId, 365);
         }
-
     }
 
     @Override
@@ -80,5 +91,16 @@ public class UsersServiceImpl extends BaseInfoProperties implements UsersService
         }
 
         return GraceJSONResult.ok(userVO);
+    }
+
+    @Override
+    public GraceJSONResult upDataFace(String userId, String face, boolean needToken) {
+
+        ModifyUserBO modifyUserBO = new ModifyUserBO();
+        modifyUserBO.setUserId(userId);
+        modifyUserBO.setFace(face);
+        modify(modifyUserBO);
+
+       return queryById(userId, needToken);
     }
 }

@@ -1,4 +1,3 @@
-/*
 package org.itzixi.utils;
 
 import com.google.zxing.BarcodeFormat;
@@ -12,17 +11,13 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
-*/
-/**
- * @Auther 风间影月
- *//*
+
 
 public class QrCodeUtils {
 
     public static String generateQRCode(String data) {
-        String filePath = "/Volumes/lee/workspaces/test/qrcode.png";
+        String filePath = "D:/work/photo/qrcode/";
         return QrCodeUtils.generateQRCode(data, filePath);
     }
 
@@ -66,16 +61,4 @@ public class QrCodeUtils {
         }
     }
 
-    public static void main(String[] args) {
-        // String data = "https://www.itzixi.com"; // 二维码中的数据
-        String data = "Hello~ 慕课网"; // 二维码中的数据
-        int width = 300; // 二维码的宽度
-        int height = 300; // 二维码的高度
-        String uuid = UUID.randomUUID().toString();
-        String filePath = "/Volumes/lee/workspaces/test/" + uuid + ".png"; // 生成的二维码文件的路径
-
-        QrCodeUtils.generateQRCode(data, width, height, filePath);
-    }
-
 }
-*/
