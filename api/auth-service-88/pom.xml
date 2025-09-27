@@ -45,15 +45,5 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*.yml</include> <!-- 包含所有YML文件 -->
-                    <include>**/*.properties</include> <!-- 可选，若有properties文件 -->
-                </includes>
-                <filtering>true</filtering> <!-- 允许变量替换（如@spring.application.name@） -->
-            </resource>
-        </resources>
     </build>
 </project>

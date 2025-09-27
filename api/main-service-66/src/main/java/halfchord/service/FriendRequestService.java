@@ -1,8 +1,6 @@
 package halfchord.service;
 
-import jakarta.servlet.http.HttpServletRequest;
 import org.itzixi.grace.result.GraceJSONResult;
-import pojo.bo.ModifyUserBO;
 import pojo.bo.NewFriendRequestBO;
 
 /**
@@ -17,4 +15,9 @@ public interface FriendRequestService {
 
 
       GraceJSONResult addNewRequest(NewFriendRequestBO newFriendRequestBO);
+
+      GraceJSONResult queryNewFriendList(String userId, Integer page, Integer pageSize);
+
+      GraceJSONResult passFriendRequest(String friendRemark, String friendRequestId);
+
 }

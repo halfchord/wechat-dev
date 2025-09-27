@@ -1,15 +1,16 @@
 package halfchord.service.Impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import feign.FileMicroServiceFeign;
 import halfchord.mapper.UsersMapper;
 import halfchord.service.UsersService;
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.itzixi.base.BaseInfoProperties;
 import org.itzixi.exceptions.GraceException;
 import org.itzixi.grace.result.GraceJSONResult;
 import org.itzixi.grace.result.ResponseStatusEnum;
-import org.itzixi.utils.JsonUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import pojo.Users;
@@ -102,5 +103,49 @@ public class UsersServiceImpl extends BaseInfoProperties implements UsersService
         modify(modifyUserBO);
 
        return queryById(userId, needToken);
+    }
+
+    @Override
+    public GraceJSONResult updateFriendCircleBg(String userId, String FriendCircleBg, boolean needToken) {
+
+        ModifyUserBO modifyUserBO = new ModifyUserBO();
+        modifyUserBO.setUserId(userId);
+        modifyUserBO.setFriendCircleBg(FriendCircleBg);
+        modify(modifyUserBO);
+
+        return queryById(userId, needToken);
+    }
+
+    @Override
+    public GraceJSONResult updateChatBg(String userId, String ChatBg, boolean needToken) {
+
+        ModifyUserBO modifyUserBO = new ModifyUserBO();
+        modifyUserBO.setUserId(userId);
+        modifyUserBO.setChatBg(ChatBg);
+        modify(modifyUserBO);
+
+        return queryById(userId, needToken);
+    }
+
+    @Override
+    public GraceJSONResult getByWhatNumOrMobile(String query, HttpServletRequest request) {
+
+        QueryWrapper<Users> queryWrapper = new QueryWrapper<Users>()
+                .eq("wechat_num",query)
+                .or()
+                .eq("mobile",query);
+
+        Users friend = usersMapper.selectOne(queryWrapper);
+
+        if(friend==null){
+            return GraceJSONResult.errorCustom(ResponseStatusEnum.FRIEND_NOT_EXIST_ERROR);
+        }
+
+        String myId = request.getHeader(HEADER_USER_ID);
+        if(myId.equals(friend.getId())){
+            return GraceJSONResult.errorCustom(ResponseStatusEnum.CAN_NOT_ADD_SELF_FRIEND_ERROR);
+        }
+
+        return GraceJSONResult.ok(friend);
     }
 }

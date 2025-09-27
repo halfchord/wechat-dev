@@ -1,31 +1,19 @@
 package halfchord.service.Impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import halfchord.mapper.FriendRequestMapper;
-import halfchord.mapper.FriendRequestMapperCustom;
 import halfchord.mapper.FriendshipMapper;
 import halfchord.mapper.FriendshipMapperCustom;
-import halfchord.service.FriendRequestService;
 import halfchord.service.FriendshipService;
 import jakarta.annotation.Resource;
 import org.itzixi.base.BaseInfoProperties;
-import org.itzixi.enums.FriendRequestVerifyStatus;
 import org.itzixi.enums.YesOrNo;
 import org.itzixi.grace.result.GraceJSONResult;
-import org.itzixi.utils.PagedGridResult;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pojo.FriendRequest;
 import pojo.Friendship;
-import pojo.bo.NewFriendRequestBO;
-import pojo.vo.NewFriendsVO;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * <p>

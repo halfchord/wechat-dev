@@ -1,5 +1,6 @@
 package halfchord.service;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.itzixi.grace.result.GraceJSONResult;
 import pojo.bo.ModifyUserBO;
 
@@ -17,5 +18,11 @@ public interface UsersService {
 
       GraceJSONResult queryById(String userId,boolean needToken);
 
-      GraceJSONResult upDataFace(String userId, String face, boolean b);
+      GraceJSONResult upDataFace(String userId, String face, boolean needToken);
+
+      GraceJSONResult updateFriendCircleBg(String userId, String friendCircleBg, boolean needToken);
+
+      GraceJSONResult updateChatBg(String userId, String chatBg, boolean b);
+
+      GraceJSONResult getByWhatNumOrMobile(String query, HttpServletRequest request);
 }

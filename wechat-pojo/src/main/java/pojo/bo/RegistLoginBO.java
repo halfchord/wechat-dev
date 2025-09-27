@@ -20,6 +20,7 @@ public class RegistLoginBO {
     private String email;
 
     @NotBlank(message = "验证码不能为空")
+
     @Length(min = 6, max = 6, message = "验证码长度不正确")
     private String smsCode;
 

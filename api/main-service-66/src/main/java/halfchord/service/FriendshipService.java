@@ -2,7 +2,6 @@ package halfchord.service;
 
 import org.itzixi.enums.YesOrNo;
 import org.itzixi.grace.result.GraceJSONResult;
-import pojo.bo.NewFriendRequestBO;
 
 /**
  * <p>

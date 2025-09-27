@@ -78,12 +78,8 @@ public class FileController {
                 + "/"
                 + filename;
 
-        //更新用户头像
-        GraceJSONResult jsonResult = userInfoMicroServiceFeign.updateFace(userId, faceUrl);
-        Object data = jsonResult.getData();
-        String json = JsonUtils.objectToJson(data);
-        UsersVO userVO = JsonUtils.jsonToPojo(json, UsersVO.class);
-        return GraceJSONResult.ok(userVO);
+        GraceJSONResult jsonResult = userInfoMicroServiceFeign.updateFace(userId,faceUrl);
+        return upload(userId,faceUrl,jsonResult);
     }
 
     @PostMapping("/generatorQrCode")
@@ -108,9 +104,71 @@ public class FileController {
         return MinIOUtils.uploadFile(minIOConfig.getBucketName(), filename, codePath, true);
     }
 
-    @PostMapping("/updateFriendCircleBg")
-    public String updateFriendCircleBg(@RequestParam("userId") String userId){
+    @PostMapping("/uploadFriendCircleBg")
+    public GraceJSONResult uploadFriendCircleBg(@RequestParam("file") MultipartFile file,
+            @RequestParam("userId") String userId) throws Exception {
 
-        return null;
+        if(StringUtils.isBlank(userId)){
+            return GraceJSONResult.errorCustom(ResponseStatusEnum.FILE_UPLOAD_FAILD);
+        }
+
+        String filename = file.getOriginalFilename(); //获取文件名
+
+        if(StringUtils.isBlank(filename)){
+            return GraceJSONResult.errorCustom(ResponseStatusEnum.FILE_UPLOAD_FAILD);
+        }
+
+        filename = "FriendCircleBg/"+userId + "/" + dealWithoutFilename(filename);
+
+        String FriendCircleBgUrl = MinIOUtils.uploadFile(minIOConfig.getBucketName(), filename, file.getInputStream(), true);
+
+
+        GraceJSONResult jsonResult = userInfoMicroServiceFeign.updateFriendCircleBg(userId,FriendCircleBgUrl);
+        return upload(userId,FriendCircleBgUrl,jsonResult);
     }
+
+    @PostMapping("/uploadChatBg")
+    public GraceJSONResult uploadChatBg(@RequestParam("file") MultipartFile file,
+                                                @RequestParam("userId") String userId) throws Exception {
+
+        if(StringUtils.isBlank(userId)){
+            return GraceJSONResult.errorCustom(ResponseStatusEnum.FILE_UPLOAD_FAILD);
+        }
+
+        String filename = file.getOriginalFilename(); //获取文件名
+
+        if(StringUtils.isBlank(filename)){
+            return GraceJSONResult.errorCustom(ResponseStatusEnum.FILE_UPLOAD_FAILD);
+        }
+
+        filename = "ChatBg/"+userId + "/" + dealWithoutFilename(filename);
+
+        String ChatBgUrl = MinIOUtils.uploadFile(minIOConfig.getBucketName(), filename, file.getInputStream(), true);
+        GraceJSONResult jsonResult = userInfoMicroServiceFeign.updateChatBg(userId,ChatBgUrl);
+        return upload(userId,ChatBgUrl,jsonResult);
+    }
+
+    private GraceJSONResult upload(String userId,String Url,GraceJSONResult jsonResult){
+        //更新用户头像，聊天背景，朋友圈背景等
+
+        Object data = jsonResult.getData();
+        String json = JsonUtils.objectToJson(data);
+        UsersVO userVO = JsonUtils.jsonToPojo(json, UsersVO.class);
+        return GraceJSONResult.ok(userVO);
+
+    }
+
+    private String dealWithFilename(String filename){
+        String suffixName=filename.substring(filename.lastIndexOf("."));
+        String fName=filename.substring(0,filename.lastIndexOf("."));
+        String uuid= UUID.randomUUID().toString();
+        return fName+"-"+uuid+suffixName;
+
+    }
+    private String dealWithoutFilename(String filename){
+        String suffixName=filename.substring(filename.lastIndexOf("."));
+        String uuid= UUID.randomUUID().toString();
+        return uuid+suffixName;
+    }
+
 }

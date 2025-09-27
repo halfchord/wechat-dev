@@ -1,11 +1,15 @@
 package org.itzixi.base;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import jakarta.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;
+import org.itzixi.utils.PagedGridResult;
 import org.itzixi.utils.RedisOperator;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+
+import java.util.List;
 
 public class BaseInfoProperties {
 
@@ -154,23 +158,23 @@ public class BaseInfoProperties {
      * @param page
      * @return
      */
-    // public PagedGridResult setterPagedGridHelper(List<?> list,
-    //                                        Integer page) {
-    //     PageInfo<?> pageList = new PageInfo<>(list);
-    //     PagedGridResult gridResult = new PagedGridResult();
-    //     gridResult.setRows(list);
-    //     gridResult.setPage(page);
-    //     gridResult.setRecords(pageList.getTotal());
-    //     gridResult.setTotal(pageList.getPages());
-    //     return gridResult;
-    // }
+    /* public PagedGridResult setterPagedGridHelper(List<?> list,
+                                           Integer page) {
+         PageInfo<?> pageList = new PageInfo<>(list);
+         PagedGridResult gridResult = new PagedGridResult();
+         gridResult.setRows(list);
+         gridResult.setPage(page);
+         gridResult.setRecords(pageList.getTotal());
+         gridResult.setTotal(pageList.getPages());
+         return gridResult;
+     }*/
 
     /**
      * 适用于 mybatis-plus
      * @param pageInfo
      * @return
      */
-    /*public PagedGridResult setterPagedGridPlus(Page<?> pageInfo) {
+    public PagedGridResult setterPagedGridPlus(Page<?> pageInfo) {
 
         //获取分页数据
         List<?> list = pageInfo.getRecords();
@@ -188,7 +192,7 @@ public class BaseInfoProperties {
         gridResult.setRecords(pageInfo.getTotal());
         gridResult.setTotal(pageInfo.getPages());
         return gridResult;
-    }*/
+    }
 
     /**
      * 调用支付中心需要开通账号
