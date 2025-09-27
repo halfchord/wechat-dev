@@ -14,7 +14,6 @@ import org.itzixi.enums.YesOrNo;
 import org.itzixi.grace.result.GraceJSONResult;
 import org.itzixi.utils.PagedGridResult;
 import org.springframework.beans.BeanUtils;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +22,6 @@ import pojo.Friendship;
 import pojo.bo.NewFriendRequestBO;
 import pojo.vo.NewFriendsVO;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;

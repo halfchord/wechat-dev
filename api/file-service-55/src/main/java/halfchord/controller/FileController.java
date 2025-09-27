@@ -1,6 +1,5 @@
 package halfchord.controller;
 
-import ch.qos.logback.classic.Logger;
 import feign.UserInfoMicroServiceFeign;
 import halfchord.config.MinIOConfig;
 import jakarta.annotation.Resource;
@@ -11,12 +10,14 @@ import org.itzixi.grace.result.ResponseStatusEnum;
 import org.itzixi.utils.JsonUtils;
 import org.itzixi.utils.MinIOUtils;
 import org.itzixi.utils.QrCodeUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import pojo.vo.UsersVO;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;

@@ -7,7 +7,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.itzixi.grace.result.GraceJSONResult;
 import org.springframework.web.bind.annotation.*;
 import pojo.bo.ModifyUserBO;
-import pojo.bo.NewFriendRequestBO;
 
 @RestController
 @RequestMapping("/userinfo")
